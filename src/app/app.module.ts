@@ -1,23 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { CrisisListComponent } from './components/crisis-list/crisis-list.component';
-import { HeroListComponent } from './components/hero-list/hero-list.component';
+import { CrisisListComponent } from './features/crisis-list/crisis-list.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
+import { HeroesModule } from './features/heroes/heroes.module';
 
+
+/**
+ * Module imports order
+ * Notice that in the module imports array, the AppRoutingModule is last and comes after the HeroesModule.
+ */
 @NgModule({
   declarations: [
     AppComponent,
     CrisisListComponent,
-    HeroListComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule,HeroesModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
